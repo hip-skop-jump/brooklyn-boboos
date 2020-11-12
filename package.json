@@ -14,7 +14,7 @@
     "frontend:dev": "npx webpack --progress --watch --config webpack.config.js",
     "frontend:eslint": "npx eslint --ext .js,.vue frontend-src",
     "build": "npm run clean && npm run backend:build && npm run frontend:build",
-    "build:prod": "npm run clean && NODE_ENV=production npm run backend:build && NODE_ENV=production npm run frontend:build -- --no-progress",
+    "build:prod": "npm run clean && NODE_ENV=production npm run backend:build && NODE_ENV=production npx webpack --config webpack.config.js",
     "start": "node dist/index.js",
     "attributions": "yarn licenses --silent generate-disclaimer > frontend-src/static/3rdpartylibraries.txt"
   },
@@ -49,6 +49,7 @@
     "less": "^3.12.2",
     "less-loader": "^7.1.0",
     "nodemon": "^2.0.6",
+    "text-transform-loader": "^2.0.0",
     "vue": "^2.6.12",
     "vue-loader": "^15.9.5",
     "vue-router": "^3.4.9",

@@ -11,20 +11,15 @@ export default new Vuex.Store({
     state: {
         user: {
             username: "",
-            uuid: Cookie.get("uuid") || "",
         },
         config: {
 
         },
     },
     getters: {
-        userCreated (state) {
-            return !!state.user.uuid;
-        },
     },
     mutations: {
         user (state, val) {
-            Cookie.set("uuid", val.uuid);
             state.user = val;
         },
         config (state, val) {
