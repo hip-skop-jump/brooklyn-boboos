@@ -1,0 +1,16 @@
+# Built files
+/dist/
+/static/
+
+
+# Node
+/node_modules/
+
+# Database
+*.db
+
+# Miscellaneous
+.DS_Store
+
+# Third party library attributions
+/frontend-src/static/3rdpartylibraries.txt

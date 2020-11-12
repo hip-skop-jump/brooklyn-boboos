@@ -1,0 +1,69 @@
+{
+  "name": "brooklyn-boboos",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -r dist static || true",
+    "eslint": "npm run frontend:eslint && npm run backend:eslint",
+    "backend:build": "npx babel backend-src -d dist",
+    "backend:dev": "npx nodemon -w backend-src --exec babel-node backend-src/index.js",
+    "backend:eslint": "npx eslint --ext .js,.vue backend-src",
+    "frontend:build": "npx webpack --progress --config webpack.config.js",
+    "frontend:dev": "npx webpack --progress --watch --config webpack.config.js",
+    "frontend:eslint": "npx eslint --ext .js,.vue frontend-src",
+    "build": "npm run clean && npm run backend:build && npm run frontend:build",
+    "build:prod": "npm run clean && NODE_ENV=production npm run backend:build && NODE_ENV=production npm run frontend:build -- --no-progress",
+    "start": "node dist/index.js",
+    "attributions": "yarn licenses --silent generate-disclaimer > frontend-src/static/3rdpartylibraries.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hip-skop-jump/brooklyn-boboos.git"
+  },
+  "author": "Hip Skop Jump",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/hip-skop-jump/brooklyn-boboos/issues"
+  },
+  "homepage": "https://github.com/hip-skop-jump/brooklyn-boboos#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.1",
+    "copy-webpack-plugin": "^6.3.0",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.13.0",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.1.0",
+    "eslint-plugin-vue": "^7.1.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "less": "^3.12.2",
+    "less-loader": "^7.1.0",
+    "nodemon": "^2.0.6",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.5",
+    "vue-router": "^3.4.9",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cookie-parser": "^1.4.5",
+    "core-js": "^3.7.0",
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.0",
+    "vue-cookies": "^1.7.4",
+    "vuex": "^3.5.1"
+  }
+}

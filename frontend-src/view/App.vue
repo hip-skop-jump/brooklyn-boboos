@@ -1,0 +1,17 @@
+<!--
+ - Copyright © 2020 Hip Skop Jump, All Rights Reserved
+ -->
+
+<template>
+    <div />
+</template>
+
+<script>
+export default {
+    name: "App",
+};
+</script>
+
+<style scoped lang="less">
+
+</style>
