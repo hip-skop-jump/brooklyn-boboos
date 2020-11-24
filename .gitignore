@@ -2,6 +2,8 @@
 /dist/
 /static/
 
+# Config
+/.frontend.env
 
 # Node
 /node_modules/

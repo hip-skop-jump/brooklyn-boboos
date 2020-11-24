@@ -1,5 +1,6 @@
 {
   "name": "brooklyn-boboos",
+  "full_name": "Brooklyn Boo Boos",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
@@ -37,6 +38,7 @@
     "babel-loader": "^8.2.1",
     "copy-webpack-plugin": "^6.3.0",
     "css-loader": "^5.0.1",
+    "dotenv": "^8.2.0",
     "eslint": "^7.13.0",
     "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",
@@ -49,6 +51,7 @@
     "less": "^3.12.2",
     "less-loader": "^7.1.0",
     "nodemon": "^2.0.6",
+    "style-loader": "^2.0.0",
     "text-transform-loader": "^2.0.0",
     "vue": "^2.6.12",
     "vue-loader": "^15.9.5",
@@ -63,9 +66,11 @@
     "cookie-parser": "^1.4.5",
     "core-js": "^3.7.0",
     "express": "^4.17.1",
+    "leaflet": "^1.7.1",
     "sequelize": "^6.3.5",
     "sqlite3": "^5.0.0",
     "vue-cookies": "^1.7.4",
+    "vue2-leaflet": "^2.6.0",
     "vuex": "^3.5.1"
   }
 }
