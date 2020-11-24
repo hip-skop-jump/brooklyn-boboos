@@ -6,6 +6,9 @@ const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
+// Set dotenv
+require('dotenv').config({ path: path.resolve(__dirname, '.frontend.env') })
+
 // Specifically to import globals for Less
 const fs = require('fs');
 const less_prepend = fs.readFileSync(path.join(__dirname, 'frontend-src', 'globals.less'));
@@ -26,6 +29,7 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: ['vue-style-loader',
+                    'style-loader',
                     'css-loader',
                     'less-loader',
                     {
@@ -37,7 +41,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['vue-style-loader', 'css-loader']
+                use: ['vue-style-loader', 'style-loader', 'css-loader']
             },
             {
                 test: /\.vue$/,
@@ -79,6 +83,8 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             "APPLICATION_NAME": JSON.stringify(packagejson.full_name),
+            "MAP_URL": JSON.stringify(process.env.MAP_URL),
+            "MAP_ATTRIBUTION": JSON.stringify(process.env.MAP_ATTRIBUTION),
         }),
     ],
     resolve: {

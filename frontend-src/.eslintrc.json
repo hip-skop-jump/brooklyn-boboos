@@ -12,7 +12,9 @@
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
-        "APPLICATION_NAME": "readonly"
+        "APPLICATION_NAME": "readonly",
+        "MAP_URL": "readonly",
+        "MAP_ATTRIBUTION": "readonly"
     },
     "parserOptions": {
         "parser": "babel-eslint",

@@ -16,6 +16,9 @@ import App from './view/App';
 // Router
 import router from './router';
 
+// Import css
+import 'leaflet/dist/leaflet.css';
+
 // Set up services
 windowTitle(router);
 

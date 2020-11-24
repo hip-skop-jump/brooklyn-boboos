@@ -3,8 +3,13 @@
  -->
 
 <template>
-    <div>
-        <router-view />
+    <div id="app">
+        <div id="content-view">
+            <router-view />
+        </div>
+        <div id="menu">
+            <router-link to="/map">Map</router-link>
+        </div>
     </div>
 </template>
 
@@ -18,5 +23,14 @@ export default {
 #app {
     width: 100%;
     min-height: 100vh;
+    overflow: hidden;
+}
+#content-view {
+    height: calc(100vh - 50px);
+    width: 100%;
+}
+#menu {
+    height: 50px;
+    width: 100%;
 }
 </style>
