@@ -21,6 +21,11 @@ class Damage extends Model {}
 Damage.consts = {
     type: {
         pothole: 0,
+        street_condition: 1,
+    },
+    source: {
+        userReport: 0,
+        ny311OpenData: 1,
     },
 };
 Damage.init({
@@ -28,7 +33,17 @@ Damage.init({
     latitude: DataTypes.DOUBLE,
     timeReported: DataTypes.TIME,
     timeFixed: DataTypes.TIME,
-    fixed: DataTypes.BOOLEAN,
+    fixed: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    },
+    dataSource: {
+        type: DataTypes.INTEGER,
+        validate: {
+            isIn: [Object.values(Damage.consts.source)],
+        },
+    },
+    uniqueKey: DataTypes.STRING,
     type: {
         type: DataTypes.INTEGER,
         validate: {

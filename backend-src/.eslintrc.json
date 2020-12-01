@@ -33,7 +33,7 @@
             "warn"
         ],
         "no-console": [
-            "warn"
+            "off"
         ],
         "import/first": [
             "off"

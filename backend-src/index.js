@@ -7,6 +7,7 @@ import express from 'express';
 
 import api from './api/index';
 import config from "./config";
+import initCron from "./data-import/index";
 
 const appRoot = path.dirname(require.main.filename);
 const appName = require('../package.json').name;
@@ -27,3 +28,5 @@ app.use(express.static(path.join(appRoot, '..', 'static')));
 app.listen(port, () => {
     console.log(`${appName} started on port ${port}`);
 });
+
+initCron();
