@@ -11,4 +11,10 @@ export default {
     server: {
         port: env.PORT || 3000,
     },
+    authentication: {
+        adminKey: env.ADMIN_KEY || "admin_key",
+    },
+    features: {
+        cronDataImport: env.CRON_DATA_IMPORT || env.CRON_DATA_IMPORT === "true",
+    },
 };
