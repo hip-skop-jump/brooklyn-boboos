@@ -23,6 +23,8 @@
 <script>
 import { LMap, LTileLayer, LGeoJson } from 'vue2-leaflet';
 
+import config from '@/services/config';
+
 export default {
     name: "Map",
     components: {
@@ -40,10 +42,10 @@ export default {
     },
     computed: {
         MAP_URL () {
-            return MAP_URL;
+            return config.MAP_URL;
         },
         MAP_ATTRIBUTION () {
-            return MAP_ATTRIBUTION;
+            return config.MAP_ATTRIBUTION;
         },
         neighborhoods () {
             return this.$store.getters.info.geojsons.neighborhoods;

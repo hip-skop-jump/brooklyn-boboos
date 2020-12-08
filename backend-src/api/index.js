@@ -5,6 +5,7 @@
 import express from 'express';
 
 import debug from './debug/index';
+import config from './config';
 import { authMiddlware } from "../auth";
 
 const router = express.Router();
@@ -16,6 +17,8 @@ router.use(authMiddlware);
 router.get('/healthcheck', (req, res) => {
     res.send('Running okay!');
 });
+
+router.get('/config.js', config);
 
 router.use('/debug', debug);
 

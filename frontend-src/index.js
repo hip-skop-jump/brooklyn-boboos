@@ -17,6 +17,9 @@ import App from './view/App';
 // Router
 import router from './router';
 
+// Set Config
+import config from './services/config';
+
 // Import css
 import 'leaflet/dist/leaflet.css';
 
