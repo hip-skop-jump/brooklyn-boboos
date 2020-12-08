@@ -6,6 +6,7 @@ import Vue from 'vue';
 
 // Setup Vuex Store
 import store from './store/store';
+store.dispatch('init');
 
 // Services
 import windowTitle from "./services/windowTitle";
