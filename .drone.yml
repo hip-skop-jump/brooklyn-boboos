@@ -13,6 +13,12 @@ steps:
       - npm i
       - npm run eslint
       - npm run build:prod
+  - name: dry-run-build
+    image: plugins/docker
+    settings:
+      dockerfile: Dockerfile
+      repo: garykim/brooklynbooboos
+      dry_run: true
 
 trigger:
   branch:
