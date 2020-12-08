@@ -88,6 +88,9 @@ module.exports = {
         }),
     ],
     resolve: {
-        extensions: ['.js', '.vue']
+        extensions: ['.js', '.vue'],
+        alias: {
+            '@': path.join(__dirname, 'frontend-src'),
+        },
     }
 };
