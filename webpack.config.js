@@ -83,8 +83,6 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             "APPLICATION_NAME": JSON.stringify(packagejson.full_name),
-            "MAP_URL": JSON.stringify(process.env.MAP_URL),
-            "MAP_ATTRIBUTION": JSON.stringify(process.env.MAP_ATTRIBUTION),
         }),
     ],
     resolve: {
