@@ -5,6 +5,13 @@ import { Damage } from "../db";
 export default async function loadData () {
     const res = await Axios.get("https://data.cityofnewyork.us/resource/fed5-ydvq.json");
     return res.data.map(async p => {
+        if (!(p.city === "BROOKLYN" &&
+            p.longitude &&
+            p.latitude &&
+            p.unique_key)
+        ) {
+            return;
+        }
         if (await Damage.findOne({
             where: {
                 uniqueKey: p.unique_key,
