@@ -11,6 +11,6 @@ export default async (req, res) => {
     }
     const promises = await nyc311opendata();
     // Wait until all the database writes are done and remove any that were already found in the database.
-    const newData = await Promise.all(promises).filter(e => !!e);
+    const newData = (await Promise.all(promises)).filter(e => !!e);
     res.status(200).send(newData);
 };

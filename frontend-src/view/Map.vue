@@ -16,12 +16,22 @@
                 :attribution="neighborhoods.attribution"
                 :options="geojsonOptions"
             />
+            <template v-for="d in damages">
+                <l-circle
+                    :key="d.id"
+                    :radius="5"
+                    :lat-lng="[d.latitude, d.longitude]"
+                    color="red"
+                />
+            </template>
         </l-map>
     </div>
 </template>
 
 <script>
-import { LMap, LTileLayer, LGeoJson } from 'vue2-leaflet';
+import Axios from '@/services/axios/axios';
+
+import { LMap, LTileLayer, LGeoJson, LCircle } from 'vue2-leaflet';
 
 import config from '@/services/config';
 
@@ -31,6 +41,7 @@ export default {
         LMap,
         LTileLayer,
         LGeoJson,
+        LCircle,
     },
     data () {
         return {
@@ -38,7 +49,11 @@ export default {
                 center: [40.655, -73.9442],
                 zoom: 12,
             },
+            damages: [],
         };
+    },
+    async mounted () {
+        this.damages = (await (Axios.get('/api/damages/get'))).data;
     },
     computed: {
         MAP_URL () {
