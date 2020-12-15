@@ -89,11 +89,11 @@ module.exports = {
             display: "standalone",
             background_color: "#fff",
             description: packagejson.description,
-            // icons: [{
-            //     src: path.resolve("PUT_LOGO_PATH"),
-            //     sizes: [96, 128, 192, 256, 384, 512],
-            //     type: "image/png",
-            // }],
+            icons: [{
+                src: path.resolve(__dirname, 'frontend-src', 'images', 'BB.png'),
+                sizes: [96, 128, 192, 256, 384, 512],
+                type: "image/png",
+            }],
         }),
         new webpack.DefinePlugin({
             "APPLICATION_NAME": JSON.stringify(packagejson.full_name),
