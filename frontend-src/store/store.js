@@ -4,6 +4,7 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
+const csv = require('csvtojson');
 
 import Axios from '@/services/axios/axios';
 
@@ -28,6 +29,9 @@ export default new Vuex.Store({
                     attribution: "",
                 },
             },
+            data: {
+                income: [],
+            },
         },
     },
     getters: {
@@ -48,6 +52,9 @@ export default new Vuex.Store({
         setZipcodes (state, val) {
             state.info.geojsons.zipcodes = val;
         },
+        setIncome (state, val) {
+            state.info.data.income = val;
+        },
     },
     actions: {
         async init (ctx) {
@@ -65,6 +72,12 @@ export default new Vuex.Store({
                         data: result.data,
                         attribution: "Carto",
                     });
+                }
+            });
+            Axios.get('/income.csv', { headers: { Accept: 'text/csv' }, responseType: "text" }).then(async result => {
+                if (result.status === 200) {
+                    const toset = await csv().fromString(result.data);
+                    ctx.commit('setIncome', toset);
                 }
             });
         },
