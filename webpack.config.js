@@ -4,6 +4,7 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackPWAManifest = require('webpack-pwa-manifest');
 const webpack = require('webpack');
 
 // Set dotenv
@@ -80,6 +81,19 @@ module.exports = {
             meta: {
                 viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
             },
+        }),
+        new WebpackPWAManifest({
+            name: packagejson.full_name,
+            short_name: "BBBs",
+            start_url: "./",
+            display: "standalone",
+            background_color: "#fff",
+            description: packagejson.description,
+            icons: [{
+                src: path.resolve(__dirname, 'frontend-src', 'images', 'BB.png'),
+                sizes: [96, 128, 192, 256, 384, 512],
+                type: "image/png",
+            }],
         }),
         new webpack.DefinePlugin({
             "APPLICATION_NAME": JSON.stringify(packagejson.full_name),

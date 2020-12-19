@@ -2,7 +2,7 @@
   "name": "brooklyn-boboos",
   "full_name": "Brooklyn Boo Boos",
   "version": "0.0.1",
-  "description": "",
+  "description": "An app to collect and represent road issues in Brooklyn in an easily understood way.",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -58,8 +58,9 @@
     "vue-router": "^3.4.9",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.12",
-    "webpack": "^5.10.0",
-    "webpack-cli": "^4.2.0"
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-pwa-manifest": "^4.2.0"
   },
   "dependencies": {
     "axios": "^0.21.0",
