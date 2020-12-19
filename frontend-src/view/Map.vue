@@ -67,7 +67,7 @@ export default {
         },
         geojsonOptions () {
             return {
-                onEachFeature,
+                onEachFeature: onEachFeature.bind(this),
                 filter,
             };
 
@@ -75,7 +75,13 @@ export default {
                 const popup = document.createElement('p');
                 if (feature?.properties?.neighborhood) {
                     const name = document.createElement('p');
-                    name.innerText = feature.properties.neighborhood;
+                    let toset = feature.properties.neighborhood;
+                    const income = this.$store.getters.info.data.income.find(e => e.neighborhood.toLowerCase() === feature.properties.neighborhood.toLowerCase());
+                    if (income) {
+                        toset += '\n';
+                        toset += 'Average income: $' + income.income + 'K';
+                    }
+                    name.innerText = toset;
                     popup.appendChild(name);
                 }
                 layer.bindPopup(popup);
